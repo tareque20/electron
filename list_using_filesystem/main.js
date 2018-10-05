@@ -13,6 +13,9 @@ const path = require('path')
       protocol: 'file:',
       slashes: true
     }))
+
+    // Open the DevTools.
+    //win.webContents.openDevTools()
   
     // Emitted when the window is closed.
     win.on('closed', () => {

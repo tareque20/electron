@@ -1,5 +1,6 @@
 let $ = require('jquery')
 let fs = require('fs')
+let os = require('os')
 let filename = 'contacts'
 let sno = 0
 
@@ -46,6 +47,8 @@ function loadAndDisplayContacts() {
             console.log(err)
       })
    }
+
+   console.log(os);
 }
 
 loadAndDisplayContacts()
