@@ -1,0 +1,17 @@
+{
+  "name": "electron_hw",
+  "version": "1.0.0",
+  "description": "This is for testing application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Tasfin",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^3.0.2"
+  },
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}
