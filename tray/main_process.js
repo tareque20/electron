@@ -7,7 +7,7 @@
     let appIcon = null;
 
     function createWindow() {
-        win = new BrowserWindow({show: false});
+        win = new BrowserWindow({show: false, frame: true});
         appIcon = new Tray(iconPath);
           
         var contextMenu = Menu.buildFromTemplate([
@@ -32,17 +32,43 @@
           label: 'Toggle DevTools',
           accelerator: 'Alt+Command+I',
           click: function() {
+             win.loadURL(url.format ({
+              pathname: path.join(__dirname, 'index.html'),
+              protocol: 'file:',
+              slashes: true
+            }))
             win.show();
-            win.toggleDevTools();
+            //win.toggleDevTools();
+            win.on('close', (event) => {
+                if (app.quitting) {
+                  win = null
+                } else {
+                  event.preventDefault()
+                  win.hide()
+                }
+            })
           }
         },
         { label: 'Quit',
           accelerator: 'Command+Q',
           selector: 'terminate:',
+          click: function() {
+            app.isQuiting = true;
+            app.quit();
+          }
         }
         ]);
         appIcon.setToolTip('This is my application.');
         appIcon.setContextMenu(contextMenu);
+        
+        win.on('minimize', function (event) {
+            event.preventDefault()
+            win.hide()
+        })
+
+        win.on('show', function () {
+            appIcon.setHighlightMode('always')
+        })
     }
 
     // This method will be called when Electron has finished
