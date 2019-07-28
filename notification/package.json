@@ -9,9 +9,9 @@
   "author": "Tasfin",
   "license": "MIT",
   "devDependencies": {
-    "electron": "^3.0.2"
+    "electron": ">=3.0.2"
   },
   "dependencies": {
-    "node-notifier": "^5.2.1"
+    "node-notifier": ">=5.2.1"
   }
 }
