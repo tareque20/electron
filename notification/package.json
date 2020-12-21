@@ -12,6 +12,6 @@
     "electron": ">=3.0.2"
   },
   "dependencies": {
-    "node-notifier": ">=5.2.1"
+    "node-notifier": ">=8.0.1"
   }
 }
